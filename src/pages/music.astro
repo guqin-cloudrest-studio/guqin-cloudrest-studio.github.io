@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Music">
+  <section class="page">
+    <h1 class="page-title">Music</h1>
+
+    <div class="section">
+      <h2 class="section-title">Albums</h2>
+      <div class="albums-grid grid-2">
+        <div class="album-card">
+          <img src="/images/album-cover-1.jpg" alt="Album 1" />
+          <div class="album-info">
+            <h3>Moonlit Strings</h3>
+            <p class="album-year">2025</p>
+            <p class="album-desc">A collection of tranquil guqin pieces inspired by the moon and night skies.</p>
+            <a href="#" class="btn btn-sm">Listen</a>
+          </div>
+        </div>
+        <div class="album-card">
+          <img src="/images/album-cover-2.jpg" alt="Album 2" />
+          <div class="album-info">
+            <h3>Flowing Waters</h3>
+            <p class="album-year">2024</p>
+            <p class="album-desc">Inspired by the classic guqin piece "Flowing Water" (&amp;流水;), this album reimagines ancient melodies.</p>
+            <a href="#" class="btn btn-sm">Listen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Singles</h2>
+      <div class="singles-list">
+        <div class="single-item">
+          <span class="single-title">Autumn Leaves</span>
+          <span class="single-year">2026</span>
+        </div>
+        <div class="single-item">
+          <span class="single-title">Morning Mist</span>
+          <span class="single-year">2025</span>
+        </div>
+        <div class="single-item">
+          <span class="single-title">Bamboo Grove</span>
+          <span class="single-year">2025</span>
+        </div>
+        <div class="single-item">
+          <span class="single-title">Silent Dawn</span>
+          <span class="single-year">2024</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Listen On</h2>
+      <div class="platforms">
+        <a href="#" class="platform-btn">Spotify</a>
+        <a href="#" class="platform-btn">YouTube Music</a>
+        <a href="#" class="platform-btn">Apple Music</a>
+        <a href="#" class="platform-btn">Bilibili</a>
+        <a href="#" class="platform-btn">Bandcamp</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .album-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .album-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .album-card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .album-info {
+    padding: 1.5rem;
+  }
+  .album-info h3 {
+    margin: 0 0 0.3rem;
+    color: #5a4a3a;
+  }
+  .album-year {
+    color: #999;
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem;
+  }
+  .album-desc {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
+    line-height: 1.6;
+  }
+  .btn-sm {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  .singles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .single-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+  }
+  .single-title {
+    font-weight: 500;
+    color: #444;
+  }
+  .single-year {
+    color: #999;
+    font-size: 0.85rem;
+  }
+  .platforms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .platform-btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #555;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .platform-btn:hover {
+    border-color: #8b7355;
+    color: #8b7355;
+  }
+</style>

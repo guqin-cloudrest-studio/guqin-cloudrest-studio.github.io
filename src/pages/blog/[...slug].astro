@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <article class="page blog-post">
+    <a href="/blog" class="back-link">&larr; Back to Blog</a>
+    <h1 class="post-title">{post.data.title}</h1>
+    <time datetime={post.data.date instanceof Date ? post.data.date.toISOString() : new Date(post.data.date).toISOString()}>
+      {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+    </time>
+    <hr />
+    <Content />
+  </article>
+</BaseLayout>
+
+<style>
+  .blog-post { max-width: 720px; }
+  .back-link { display: inline-block; margin-bottom: 1rem; color: #8b7355; font-size: 0.9rem; }
+  .post-title { margin: 0 0 0.3rem; color: #5a4a3a; }
+  .blog-post time { display: block; color: #999; font-size: 0.9rem; margin-bottom: 1.5rem; }
+  .blog-post hr { border: none; border-top: 1px solid #eee; margin-bottom: 1.5rem; }
+  .blog-post p { color: #444; line-height: 1.8; }
+  .blog-post blockquote { border-left: 3px solid #8b7355; margin: 1.5rem 0; padding: 0.5rem 1.5rem; background: #f8f5f0; font-style: italic; color: #555; }
+</style>

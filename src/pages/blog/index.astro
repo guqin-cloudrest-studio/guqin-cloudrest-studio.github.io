@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+posts.sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
+---
+
+<BaseLayout title="Blog" description="News and updates from CloudRest Studio">
+  <section class="page">
+    <h1 class="page-title">Blog</h1>
+    <div class="posts-list">
+      {posts.map(post => (
+        <article class="post-card">
+          <a href={`/blog/${post.id}`}>
+            <h2>{post.data.title}</h2>
+          </a>
+          <time datetime={post.data.date instanceof Date ? post.data.date.toISOString() : post.data.date}>
+            {new Date(post.data.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <p>{post.data.description}</p>
+        </article>
+      ))}
+    </div>
+    {posts.length === 0 && (
+      <p style="text-align:center;color:#999;padding:3rem 0;">No posts yet. Check back soon!</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .posts-list { max-width: 700px; margin: 0 auto; }
+  .post-card { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 1.5rem 2rem; margin-bottom: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
+  .post-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .post-card a { text-decoration: none; }
+  .post-card h2 { margin: 0 0 0.3rem; font-size: 1.3rem; color: #5a4a3a; }
+  .post-card h2:hover { color: #8b7355; }
+  .post-card time { display: block; font-size: 0.85rem; color: #999; margin-bottom: 0.7rem; }
+  .post-card p { margin: 0; color: #666; font-size: 0.95rem; line-height: 1.6; }
+</style>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const videos = [
+  {
+    id: 'placeholder-1',
+    title: 'Guqin Performance: Flowing Water',
+    desc: 'A live recording of the classic guqin piece "Flowing Water" (&amp;流水;).',
+  },
+  {
+    id: 'placeholder-2',
+    title: 'Meditation with Guqin',
+    desc: '30 minutes of gentle guqin music for meditation and relaxation.',
+  },
+  {
+    id: 'placeholder-3',
+    title: 'Guqin Workshop: Introduction',
+    desc: 'An introductory workshop on the basics of guqin playing.',
+  },
+];
+---
+
+<BaseLayout title="Videos">
+  <section class="page">
+    <h1 class="page-title">Videos</h1>
+    <div class="videos-grid grid-2">
+      {videos.map(v => (
+        <div class="video-card">
+          <div class="video-placeholder">
+            <div class="placeholder-inner">
+              <span class="play-icon">&#9654;</span>
+              <span class="video-title-placeholder">{v.title}</span>
+            </div>
+          </div>
+          <div class="video-info">
+            <h3>{v.title}</h3>
+            <p>{v.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .video-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .video-placeholder {
+    background: #2c2c2c;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .placeholder-inner {
+    text-align: center;
+  }
+  .play-icon {
+    font-size: 2.5rem;
+    color: #fff;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .video-title-placeholder {
+    color: #aaa;
+    font-size: 0.85rem;
+    display: block;
+  }
+  .video-info {
+    padding: 1.2rem;
+  }
+  .video-info h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.05rem;
+    color: #5a4a3a;
+  }
+  .video-info p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+</style>

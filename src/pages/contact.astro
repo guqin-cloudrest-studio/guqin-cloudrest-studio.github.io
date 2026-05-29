@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact">
+  <section class="page">
+    <h1 class="page-title">Contact</h1>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>Have a question, collaboration idea, or just want to say hello? We'd love to hear from you.</p>
+        <div class="contact-details">
+          <div class="detail-item">
+            <strong>Email</strong>
+            <a href="mailto:hello@cloudrest.studio">hello@cloudrest.studio</a>
+          </div>
+          <div class="detail-item">
+            <strong>Follow</strong>
+            <div class="social-links">
+              <a href="#">YouTube</a>
+              <a href="#">Bilibili</a>
+              <a href="#">Instagram</a>
+              <a href="#">Weibo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" method="POST" action="#">
+        <label>
+          Name
+          <input type="text" name="name" placeholder="Your name" />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" placeholder="your@email.com" />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="5" placeholder="Your message..."></textarea>
+        </label>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .contact-info h2 {
+    color: #5a4a3a;
+    margin-top: 0;
+  }
+  .contact-info p {
+    color: #555;
+    line-height: 1.7;
+  }
+  .contact-details {
+    margin-top: 2rem;
+  }
+  .detail-item {
+    margin-bottom: 1.5rem;
+  }
+  .detail-item strong {
+    display: block;
+    color: #5a4a3a;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .detail-item a {
+    color: #8b7355;
+    text-decoration: none;
+  }
+  .detail-item a:hover {
+    text-decoration: underline;
+  }
+  .social-links {
+    display: flex;
+    gap: 1rem;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+    transition: border-color 0.2s;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #8b7355;
+  }
+  .contact-form textarea {
+    resize: vertical;
+  }
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

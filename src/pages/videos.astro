@@ -1,19 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const videos = [
+const placeholders = [
   {
-    id: 'placeholder-1',
-    title: 'Guqin Performance: Flowing Water',
-    desc: 'A live recording of the classic guqin piece "Flowing Water" (&amp;流水;).',
-  },
-  {
-    id: 'placeholder-2',
     title: 'Meditation with Guqin',
     desc: '30 minutes of gentle guqin music for meditation and relaxation.',
   },
   {
-    id: 'placeholder-3',
     title: 'Guqin Workshop: Introduction',
     desc: 'An introductory workshop on the basics of guqin playing.',
   },
@@ -24,7 +17,25 @@ const videos = [
   <section class="page">
     <h1 class="page-title">Videos</h1>
     <div class="videos-grid grid-2">
-      {videos.map(v => (
+
+      <!-- Real YouTube video -->
+      <div class="video-card">
+        <div class="video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/_Ygqm1M_VlM"
+            title="Guqin Performance"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="video-info">
+          <h3>Guqin Performance</h3>
+          <p>Watch on <a href="https://youtu.be/_Ygqm1M_VlM" target="_blank" rel="noopener">YouTube</a></p>
+        </div>
+      </div>
+
+      <!-- Placeholders -->
+      {placeholders.map(v => (
         <div class="video-card">
           <div class="video-placeholder">
             <div class="placeholder-inner">
@@ -38,6 +49,7 @@ const videos = [
           </div>
         </div>
       ))}
+
     </div>
   </section>
 </BaseLayout>
@@ -53,6 +65,17 @@ const videos = [
   .video-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  }
+  .video-embed {
+    position: relative;
+    aspect-ratio: 16 / 9;
+  }
+  .video-embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
   }
   .video-placeholder {
     background: #2c2c2c;

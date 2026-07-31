@@ -6,8 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1>CloudRest Studio</h1>
-      <p class="hero-subtitle">Guqin &middot; Serenity &middot; Tradition</p>
+      <img src="/images/logo-hero-white.png" alt="Cloud Rest Qin Studio" class="hero-logo" />
       <p class="hero-desc">Exploring the timeless beauty of the guqin through music, meditation, and art.</p>
       <div class="hero-links">
         <a href="/music" class="btn">Listen to Music</a>
@@ -64,18 +63,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding: 2rem;
     max-width: 700px;
   }
-  .hero-content h1 {
-    color: #fff;
-    font-size: 3.2rem;
-    margin: 0 0 0.5rem;
-    letter-spacing: 0.08em;
-  }
-  .hero-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.85;
-    letter-spacing: 0.15em;
-    margin: 0 0 1rem;
-    text-transform: uppercase;
+  .hero-logo {
+    max-width: 100%;
+    width: 480px;
+    height: auto;
+    margin: 0 auto 1.2rem;
   }
   .hero-desc {
     font-size: 1.05rem;
@@ -142,6 +134,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   @media (max-width: 768px) {
     .hero { height: 70vh; }
-    .hero-content h1 { font-size: 2rem; }
+    .hero-logo { width: 300px; }
   }
 </style>

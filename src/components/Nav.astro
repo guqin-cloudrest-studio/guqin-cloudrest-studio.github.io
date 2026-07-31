@@ -12,7 +12,13 @@ const links = [
 ---
 
 <nav>
-  <a href="/" class="logo">CloudRest</a>
+  <a href="/" class="logo">
+    <img src="/images/logo-mark.png" alt="" class="logo-icon" />
+    <span class="logo-text">
+      <span class="logo-en">Cloud Rest</span>
+      <span class="logo-sub">Qin Studio</span>
+    </span>
+  </a>
   <button class="hamburger" aria-label="Toggle menu" id="hamburger">
     <span></span><span></span><span></span>
   </button>
@@ -42,11 +48,33 @@ const links = [
     z-index: 100;
   }
   .logo {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #5a4a3a;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
     text-decoration: none;
-    letter-spacing: 0.05em;
+  }
+  .logo-icon {
+    height: 44px;
+    width: auto;
+    display: block;
+  }
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+  .logo-en {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #2c2c2c;
+    letter-spacing: 0.03em;
+  }
+  .logo-sub {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #8b7355;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
   ul {
     display: flex;
